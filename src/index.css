@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    @apply bg-slate-950 text-slate-100 min-h-screen selection:bg-indigo-500 selection:text-white;
+  }
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Pulsing Mic Waves */
+@keyframes wave-pulse {
+  0% {
+    box-shadow: 0 0 0 0rem rgba(239, 68, 68, 0.4), 0 0 0 0rem rgba(239, 68, 68, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 1rem rgba(239, 68, 68, 0.15), 0 0 0 2rem rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0rem rgba(239, 68, 68, 0), 0 0 0 0rem rgba(239, 68, 68, 0);
+  }
+}
+
+.animate-mic-wave {
+  animation: wave-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* FullCalendar Modern Overrides */
+.fc {
+  --fc-border-color: rgba(255, 255, 255, 0.08);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: rgba(30, 41, 59, 0.3);
+  --fc-list-event-hover-bg-color: rgba(99, 102, 241, 0.2);
+  --fc-today-bg-color: rgba(99, 102, 241, 0.08) !important;
+}
+
+.fc-theme-standard td, .fc-theme-standard th {
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.fc .fc-toolbar {
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem !important;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fc .fc-button-primary {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #e2e8f0 !important;
+  font-weight: 500 !important;
+  border-radius: 0.75rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fc .fc-button-primary:hover {
+  background-color: rgba(99, 102, 241, 0.8) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.fc .fc-button-primary:active, .fc .fc-button-primary.fc-button-active {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+  border-color: #6366f1 !important;
+  color: #ffffff !approval;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4) !important;
+}
+
+.fc .fc-col-header-cell {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 0.75rem 0 !important;
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.fc .fc-daygrid-day-number {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.fc-event {
+  border-radius: 0.5rem !important;
+  border: none !important;
+  padding: 2px 6px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.fc-event:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+.fc-v-event {
+  background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%) !important;
+}
+
+.fc-h-event {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+}
+
+.fc .fc-timegrid-axis-cushion, .fc .fc-timegrid-slot-label-cushion {
+  color: #64748b !important;
+  font-size: 0.75rem;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
